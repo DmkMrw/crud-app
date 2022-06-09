@@ -6,6 +6,10 @@ const subreducers = {
      posts: postsReducer
 };
 
+//selectors
+
+export const getAllPosts = (state) => state.posts;
+
 const reducer = combineReducers(subreducers);
 const store = createStore(
   reducer,
