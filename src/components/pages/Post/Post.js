@@ -1,6 +1,21 @@
-const Post = () => {
+import { Card, Button, } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
+
+const Post = (props) => {
+
      return (
-          <h1>Post</h1>
+          <>
+          <Card style={{ width: '18rem' }} className="mb-4">
+               <Card.Body>
+                         <Card.Title>{props.title}</Card.Title>
+                         <p className="font-weight-bold">Author: {props.author}</p>
+                         <p className="text-muted">Published: {props.publishedDate}</p>
+                         <Card.Text><p className="font-weight-bold">Short description: {props.shortDescription}</p></Card.Text>
+                         <Link key={props.postId} to={'/post/' + props.postId}><Button variant="primary">Read more</Button></Link>
+               </Card.Body>
+          </Card>
+          </>
      );
 }
 

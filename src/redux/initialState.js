@@ -9,7 +9,7 @@ const initialState = {
       author: 'David Mitchell'
           },
           {
-      id: '1',
+      id: '2',
       title: 'Cień wiatru',
       shortDescription: 'Cmentarz zapomnianych książek',
       content: 'W letni świt 1945 roku dziesięcioletni Daniel Sempere zostaje zaprowadzony przez ojca, księgarza i antykwariusza, do niezwykłego miejsca w sercu starej Barcelony, które wtajemniczonym znane jest jako Cmentarz Zapomnianych Książek.',
@@ -17,7 +17,7 @@ const initialState = {
       author: 'Carlos Ruiz'
           },
           {
-      id: '1',
+      id: '3',
       title: 'Miasto kości',
       shortDescription: 'Ze świata nocnych łowców',
       content: 'Tysiące lat temu, Anioł Razjel zmieszał swoją krew z krwią mężczyzn i stworzył rasę Nephilim, pół ludzi, pół aniołów.',
