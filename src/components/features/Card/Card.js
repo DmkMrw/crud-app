@@ -3,7 +3,7 @@ import Post from "../../pages/Post/Post";
 import { getAllPosts } from "../../../redux/store";
 
 
-const Column = () => {
+const Card = () => {
 
      const posts = useSelector(getAllPosts)
 
@@ -16,4 +16,4 @@ const Column = () => {
      );
 }
 
-export default Column;
+export default Card;
