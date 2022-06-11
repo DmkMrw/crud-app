@@ -10,7 +10,7 @@ const Home = () => {
                <h1>All posts</h1>
                <Link to="/post/add"><Button variant="outline-info">Add post</Button>{' '}</Link>
           </div>
-          <Posts/>
+               <Posts />
           </>
      );
 }
