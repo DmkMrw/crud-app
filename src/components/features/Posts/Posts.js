@@ -10,10 +10,10 @@ const Posts = () => {
 
      return (
           <>
-               <Row className="d-flex justify-content-center col-xl-12">
+               <Row className="d-flex justify-content-around">
                     {posts.map(post => (
                          <Card style={{ width: '18rem'}} className="mb-4 mt-4" key={post.id}>
-                         <Card.Body>
+                         <Card.Body >
                                    <Card.Title>{post.title}</Card.Title>
                                    <p><b>Author: </b>{post.author}</p>
                                    <p><b>Published: </b> {post.publishedDate}</p>

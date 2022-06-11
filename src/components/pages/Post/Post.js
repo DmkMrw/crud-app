@@ -7,7 +7,7 @@ const Post = (props) => {
      return (
           <>
           <Row className="d-flex justify-content-center">
-               <Card style={{ width: '18rem' }} className="mb-4">
+               <Card style={{ width: '80vw' }} className="mb-4">
                     <Card.Body>
                               <Card.Title><h1>Article title</h1></Card.Title>
                               <p><b>Author: </b>{props.author}</p>
