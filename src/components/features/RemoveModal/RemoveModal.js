@@ -21,7 +21,7 @@ function RemoveModal(props) {
                <Button variant="secondary" onClick={props.handleClose}>
                Close
                </Button>
-               <Button variant="primary">Remove</Button>
+               <Button variant="primary" onClick={props.handleRemove}>Remove</Button>
           </Modal.Footer>
           </Modal>
      </>

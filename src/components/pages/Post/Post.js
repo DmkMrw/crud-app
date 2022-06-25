@@ -1,11 +1,12 @@
 import { Button, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getPostById } from "../../../redux/store";
 import { useState } from "react";
 import RemoveModal from "../../features/RemoveModal/RemoveModal";
-
+import { useDispatch } from "react-redux";
+import { deletePost } from "../../../redux/postRedux";
+import { Navigate } from "react-router-dom";
 
 const Post = (props) => {
 
@@ -14,10 +15,19 @@ const Post = (props) => {
      const [showRemoveModal, setShowRemoveModal] = useState(false)
      const handleClose = () => setShowRemoveModal(false);
 
-     if (showRemoveModal) return <RemoveModal show={showRemoveModal} handleClose={handleClose}/>
+     const dispatch = useDispatch();
+
+     const handleRemove = (e) => {
+          e.preventDefault();
+          dispatch(deletePost(id))
+          setShowRemoveModal(false)
+     };
+
+     if (showRemoveModal) return <RemoveModal show={showRemoveModal} handleClose={handleClose} handleRemove={handleRemove} />
 
      const handleShowRemoveModal = () => setShowRemoveModal(true)
 
+     if(!listData) return <Navigate to="/" />
      return (
           <>
                <Row className='justify-content-center'>
