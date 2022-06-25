@@ -2,22 +2,25 @@ import { Form, Button, Row, Col } from 'react-bootstrap';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addPost } from '../../../redux/postRedux';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const AddPostForm = () => {
 
      const dispatch = useDispatch();
+     const navigate = useNavigate();
 
      const [title, setTitle] = useState('');
      const [author, setAuthor] = useState('');
      const [publishedDate, setPublishedDate] = useState('');
-     const [description, setDescription] = useState('');
+     const [shortDescription, setshortDescription] = useState('');
      const [content, setContent] = useState('');
 
      const handleSubmit = (e) => {
           e.preventDefault();
-          dispatch(addPost(title, author, publishedDate, description, content))
+          dispatch(addPost({ title, author, publishedDate, shortDescription, content }));
+          navigate(-1)
      }
 
      return (
@@ -44,7 +47,7 @@ const AddPostForm = () => {
 
                               <Form.Group className="mb-3" controlId="description">
                                    <Form.Label>Short Description</Form.Label>
-                                   <Form.Control type="text" as="textarea" rows={3} placeholder="Leave a comment here" onChange={(e)=> setDescription(e.target.value)}/>
+                                   <Form.Control type="text" as="textarea" rows={3} placeholder="Leave a comment here" onChange={(e)=> setshortDescription(e.target.value)}/>
                               </Form.Group>
 
                               <Form.Group className="mb-3" controlId="content">

@@ -1,4 +1,4 @@
-// import shortid from "shortid";
+import shortid from "shortid";
 
 //selectors
 
@@ -18,7 +18,7 @@ export const addPost = payload => ({type: ADD_POST, payload })
 const postsReducer = (statePart = [], action) => {
   switch (action.type) {
     case ADD_POST:
-        return [...statePart, {...action.payload}] // dlaczego kropki przed action.payload
+        return [...statePart, {...action.payload, id: shortid() }] // dlaczego kropki przed action.payload
     case DELETE_POST:
         return statePart.filter(post => post.id !== action.payload);
     default:
