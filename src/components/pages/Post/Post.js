@@ -23,14 +23,16 @@ const Post = (props) => {
           setShowRemoveModal(false)
      };
 
-     if (showRemoveModal) return <RemoveModal show={showRemoveModal} handleClose={handleClose} handleRemove={handleRemove} />
+
 
      const handleShowRemoveModal = () => setShowRemoveModal(true)
 
      if(!listData) return <Navigate to="/" />
      return (
           <>
+
                <Row className='justify-content-center'>
+                    <RemoveModal show={showRemoveModal} handleClose={handleClose} handleRemove={handleRemove} />
                     <Col md={8} className='d-flex justify-content-between'>
                          <h1>{listData.title}</h1>
                          <div>
