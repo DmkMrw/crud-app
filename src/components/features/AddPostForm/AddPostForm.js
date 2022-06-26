@@ -20,8 +20,8 @@ const AddPostForm = () => {
      const handleSubmit = (e) => {
           e.preventDefault();
           dispatch(addPost({ title, author, publishedDate, shortDescription, content }));
-          navigate(-1)
-     }
+          navigate('/')
+     };
 
      return (
           <>
@@ -31,28 +31,28 @@ const AddPostForm = () => {
                               <Col md={6}>
                                    <Form.Group className="mb-3" controlId="title">
                                         <Form.Label>Title</Form.Label>
-                                        <Form.Control type="text" placeholder="Enter title" onChange={(e) => setTitle(e.target.value)} />
+                                        <Form.Control type="text" placeholder="Enter title" required onChange={(e) => setTitle(e.target.value)} />
                                    </Form.Group>
 
                                    <Form.Group className="mb-3" controlId="author">
                                         <Form.Label>Author</Form.Label>
-                                        <Form.Control type="text" placeholder="Enter author" onChange={(e)=> setAuthor(e.target.value)} />
+                                        <Form.Control type="text" placeholder="Enter author" required onChange={(e)=> setAuthor(e.target.value)} />
                                    </Form.Group>
 
                                    <Form.Group className="mb-3" controlId="published">
                                         <Form.Label>Published</Form.Label>
-                                        <Form.Control type="date" placeholder="Enter date" onChange={(e)=> setPublishedDate(e.target.value)}/>
+                                        <Form.Control type="date" placeholder="Enter date" required onChange={(e)=> setPublishedDate(e.target.value)}/>
                                    </Form.Group>
                               </Col>
 
                               <Form.Group className="mb-3" controlId="description">
                                    <Form.Label>Short Description</Form.Label>
-                                   <Form.Control type="text" as="textarea" rows={3} placeholder="Leave a comment here" onChange={(e)=> setshortDescription(e.target.value)}/>
+                                   <Form.Control type="text" as="textarea" rows={3} placeholder="Leave a comment here" required onChange={(e) => setshortDescription(e.target.value)} />
                               </Form.Group>
 
                               <Form.Group className="mb-3" controlId="content">
                                    <Form.Label>Main Content</Form.Label>
-                                   <Form.Control type="text" as="textarea" rows={7} placeholder="Leave a comment here" onChange={(e)=> setContent(e.target.value)}/>
+                                   <Form.Control type="text" as="textarea" rows={7} placeholder="Leave a comment here" required onChange={(e)=> setContent(e.target.value)}/>
                               </Form.Group>
 
                               <Button variant="primary" type="submit">
