@@ -11,6 +11,7 @@ const subreducers = {
 export const getAllPosts = (state) => state.posts;
 export const getPostById = ({ posts }, postId) => posts.find(post => post.id === postId);
 
+
 const reducer = combineReducers(subreducers);
 
 const store = createStore(

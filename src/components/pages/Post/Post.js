@@ -6,11 +6,13 @@ import { useState } from "react";
 import RemoveModal from "../../features/RemoveModal/RemoveModal";
 import { useDispatch } from "react-redux";
 import { deletePost } from "../../../redux/postRedux";
-import { Navigate } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 
-const Post = (props) => {
+
+const Post = () => {
 
      const { id } = useParams();
+
      const listData = useSelector(state => getPostById(state, id))
      const [showRemoveModal, setShowRemoveModal] = useState(false)
      const handleClose = () => setShowRemoveModal(false);
@@ -23,8 +25,6 @@ const Post = (props) => {
           setShowRemoveModal(false)
      };
 
-
-
      const handleShowRemoveModal = () => setShowRemoveModal(true)
 
      if(!listData) return <Navigate to="/" />
@@ -36,7 +36,7 @@ const Post = (props) => {
                     <Col md={8} className='d-flex justify-content-between'>
                          <h1>{listData.title}</h1>
                          <div>
-                              <Button variant='outline-info' className='m-2'>Edit</Button>
+                              <Link to={'/post/edit/' + id}><Button variant='outline-info' className='m-2'>Edit</Button></Link>
                               <Button variant='outline-danger' onClick={handleShowRemoveModal}>Delete</Button>
                          </div>
                     </Col>
