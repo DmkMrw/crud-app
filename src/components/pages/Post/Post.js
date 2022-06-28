@@ -46,7 +46,7 @@ const Post = () => {
                     <Col md={8}>
                          <p><b>Author: </b>{listData.author}{' '}</p>
                          <p><b>Published: </b> {listData.publishedDate}</p>
-                         <p>{ listData.content }</p>
+                              <p dangerouslySetInnerHTML={{ __html: listData.content }} />
                     </Col>
                </Row>
           </>
