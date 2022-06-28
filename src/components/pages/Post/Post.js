@@ -7,6 +7,7 @@ import RemoveModal from "../../features/RemoveModal/RemoveModal";
 import { useDispatch } from "react-redux";
 import { deletePost } from "../../../redux/postRedux";
 import { Navigate, Link } from "react-router-dom";
+import { dateToStr } from "../../../utils/dateToStr";
 
 
 const Post = () => {
@@ -45,7 +46,7 @@ const Post = () => {
                <Row className='justify-content-center'>
                     <Col md={8}>
                          <p><b>Author: </b>{listData.author}{' '}</p>
-                         <p><b>Published: </b> {listData.publishedDate}</p>
+                         <p><b>Published: </b> {dateToStr(listData.publishedDate)}</p>
                               <p dangerouslySetInnerHTML={{ __html: listData.content }} />
                     </Col>
                </Row>

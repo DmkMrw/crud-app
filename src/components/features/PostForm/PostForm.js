@@ -3,6 +3,9 @@ import { useState } from 'react';
 import dateFormat from "dateformat";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import DatePicker from "react-datepicker";
+import 'react-datepicker/dist/react-datepicker.css';
+
 
 
 const PostForm = ({ action, actionText, ...props }) => {
@@ -46,12 +49,13 @@ const PostForm = ({ action, actionText, ...props }) => {
 
                                    <Form.Group className="mb-3" controlId="published">
                                         <Form.Label>Published</Form.Label>
-                                        <Form.Control
+                                        {/* <Form.Control
                                              type="date"
                                              placeholder="Enter date"
                                              required
                                              onChange={(e) => setPublishedDate(dateFormat(e.target.value, "yyyy-mm-dd"))} value={publishedDate}
-                                        />
+                                        /> */}
+                                        <DatePicker selected={publishedDate} onChange={(date) => setPublishedDate(date)} placeholderText={'Please select a date'} />
                                    </Form.Group>
                               </Col>
 

@@ -7,6 +7,7 @@ import { getPostById } from "../../../redux/store";
 import { useSelector } from "react-redux";
 import dateFormat from "dateformat";
 import { Navigate } from "react-router-dom";
+import { dateToStr } from "../../../utils/dateToStr";
 
 const EditPostForm = () => {
 
@@ -26,13 +27,14 @@ const EditPostForm = () => {
      if(!postData) return <Navigate to="/" />
      return (
           <>
-               <h1>edit post form</h1>
+               <h1>Edit Post</h1>
                <PostForm
                     action={handleSubmit}
                     actionText={actionText}
                     title={postData.title}
                     author={postData.author}
-                    publishedDate={dateFormat(postData.publishedDate, "yyyy-mm-dd")}
+                    // publishedDate={dateFormat(postData.publishedDate, "yyyy-mm-dd")}
+                    publishedDate={postData.publishedDate}
                     shortDescription={postData.shortDescription}
                     content={postData.content}
                     id={postId}
