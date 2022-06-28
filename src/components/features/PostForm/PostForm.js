@@ -1,6 +1,8 @@
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import { useState } from 'react';
 import dateFormat from "dateformat";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 
 const PostForm = ({ action, actionText, ...props }) => {
@@ -67,14 +69,7 @@ const PostForm = ({ action, actionText, ...props }) => {
 
                               <Form.Group className="mb-3" controlId="content">
                                    <Form.Label>Main Content</Form.Label>
-                                   <Form.Control
-                                        type="text"
-                                        as="textarea"
-                                        rows={7}
-                                        placeholder="Leave a comment here"
-                                        required
-                                        onChange={(e) => setContent(e.target.value)} value={content}
-                                   />
+                                   <ReactQuill theme='snow' value={content} onChange={setContent} placeholder='Type here' />
                               </Form.Group>
 
                               <Button variant="primary" type="submit">
