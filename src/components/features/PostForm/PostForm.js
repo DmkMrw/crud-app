@@ -80,7 +80,8 @@ const PostForm = ({ action, actionText, ...props }) => {
 
                               <Form.Group className="mb-3">
                                    <Form.Label>Category</Form.Label>
-                                        <Form.Select id="categorySelect" onChange={(e) => setCategory(e.target.value)} value={category} aria-label='Select category'>
+                                   <Form.Select id="categorySelect" onChange={(e) => setCategory(e.target.value)} value={category}>
+                                             <option>Select category...</option>
                                              {categories.map(category => <option key={shortid()} value={category} >{category}</option>)}
                                         </Form.Select>
 
