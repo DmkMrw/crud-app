@@ -1,7 +1,7 @@
 import { Button, Row, Col } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { getPostById } from "../../../redux/store";
+import { getPostById } from "../../../redux/postRedux";
 import { useState } from "react";
 import RemoveModal from "../../features/RemoveModal/RemoveModal";
 import { useDispatch } from "react-redux";
@@ -47,7 +47,8 @@ const Post = () => {
                     <Col md={8}>
                          <p><b>Author: </b>{listData.author}{' '}</p>
                          <p><b>Published: </b> {dateToStr(listData.publishedDate)}</p>
-                              <p dangerouslySetInnerHTML={{ __html: listData.content }} />
+                         <p><b>Category: </b>{listData.category}</p>
+                         <p dangerouslySetInnerHTML={{ __html: listData.content }} />
                     </Col>
                </Row>
           </>

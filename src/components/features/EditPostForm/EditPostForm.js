@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { editPost } from "../../../redux/postRedux";
 import { useParams } from "react-router-dom";
-import { getPostById } from "../../../redux/store";
+import { getPostById } from '../../../redux/postRedux';
 import { useSelector } from "react-redux";
 import dateFormat from "dateformat";
 import { Navigate } from "react-router-dom";
@@ -34,6 +34,7 @@ const EditPostForm = () => {
                     author={postData.author}
                     // publishedDate={dateFormat(postData.publishedDate, "yyyy-mm-dd")}
                     publishedDate={postData.publishedDate}
+                    category={postData.category}
                     shortDescription={postData.shortDescription}
                     content={postData.content}
                     id={postId}

@@ -1,15 +1,14 @@
 import { createStore, combineReducers } from 'redux';
 import initialState from './initialState';
 import postsReducer from './postRedux';
+import categoriesReducer from './categoriesRedux';
 
 const subreducers = {
-    posts: postsReducer
+  posts: postsReducer,
+  categories: categoriesReducer
 };
 
 //selectors
-
-export const getAllPosts = (state) => state.posts;
-export const getPostById = ({ posts }, postId) => posts.find(post => post.id === postId);
 
 
 const reducer = combineReducers(subreducers);
