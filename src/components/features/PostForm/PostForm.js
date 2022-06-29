@@ -43,8 +43,7 @@ const PostForm = ({ action, actionText, ...props }) => {
                                              placeholder="Enter title"
                                              onChange={(e) => setTitle(e.target.value)} value={title}
                                         />
-                                        {errors.title && <small className="d-block form-text text-danger mt-2">This field is required</small>}
-                                        {errors.title && <small className="d-block form-text text-danger mt-2">Title is too short (min is 3)</small>}
+                                        {errors.title && <small className="d-block form-text text-danger mt-2">This field is required and should be minimum 3 signs lenght</small>}
                                    </Form.Group>
 
                                    <Form.Group className="mb-3" controlId="author">
@@ -55,8 +54,7 @@ const PostForm = ({ action, actionText, ...props }) => {
                                              placeholder="Enter author"
                                              onChange={(e) => setAuthor(e.target.value)} value={author}
                                         />
-                                        {errors.author && <small className="d-block form-text text-danger mt-2">This field is required</small>}
-                                        {errors.author && <small className="d-block form-text text-danger mt-2">Title is too short (min is 3)</small>}
+                                        {errors.author && <small className="d-block form-text text-danger mt-2">This field is required and should be minimum 3 signs lenght</small>}
                                    </Form.Group>
 
                                    <Form.Group className="mb-3" controlId="published">
@@ -68,6 +66,7 @@ const PostForm = ({ action, actionText, ...props }) => {
                                              onChange={(e) => setPublishedDate(dateFormat(e.target.value, "yyyy-mm-dd"))} value={publishedDate}
                                         /> */}
                                         <DatePicker selected={publishedDate} onChange={(date) => setPublishedDate(date)} placeholderText={'Please select a date'} />
+                                        {dateError && <small className="d-block form-text text-danger mt-2">You have to choose a date.</small>}
                                    </Form.Group>
                               </Col>
 
@@ -81,13 +80,13 @@ const PostForm = ({ action, actionText, ...props }) => {
                                         placeholder="Leave a comment here"
                                         onChange={(e) => setShortDescription(e.target.value)} value={shortDescription}
                                    />
-                                   {errors.shortDescription && <small className="d-block form-text text-danger mt-2">This field is required</small>}
-                                   {errors.shortDescription && <small className="d-block form-text text-danger mt-2">Title is too short (min is 20)</small>}
+                                   {errors.shortDescription && <small className='d-block form-text text-danger mt-2'>This field is required and should be minimum 20 signs length</small>}
                               </Form.Group>
 
                               <Form.Group className="mb-3" controlId="content">
                                    <Form.Label>Main Content</Form.Label>
                                    <ReactQuill theme='snow' value={content} onChange={setContent} placeholder='Type here' />
+                                   {contentError && <small className="d-block form-text text-danger mt-2">Content can't be empty</small>}
                               </Form.Group>
 
                               <Button variant="primary" type="submit">
