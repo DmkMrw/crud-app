@@ -7,7 +7,6 @@ import { getPostById } from "../../../redux/store";
 import { useSelector } from "react-redux";
 import dateFormat from "dateformat";
 import { Navigate } from "react-router-dom";
-import { dateToStr } from "../../../utils/dateToStr";
 
 const EditPostForm = () => {
 

@@ -5,6 +5,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css';
+import { useForm } from "react-hook-form";
 
 
 
@@ -15,36 +16,47 @@ const PostForm = ({ action, actionText, ...props }) => {
      const [publishedDate, setPublishedDate] = useState(props.publishedDate || '');
      const [shortDescription, setShortDescription] = useState(props.shortDescription || '');
      const [content, setContent] = useState(props.content || '');
+     const [contentError, setContentError] = useState(false);
+     const [dateError, setDateError] = useState(false);
+
+     const { register, handleSubmit: validate, formState: { errors } } = useForm();
 
      const handleSubmit = e => {
-          e.preventDefault();
+          setContentError(!content);
+          setDateError(!publishedDate);
+          if(content && publishedDate) {
           action({ title, author, publishedDate, shortDescription, content });
+          };
      };
 
      return (
           <>
                <Row className='justify-content-md-center'>
                     <Col md={6}>
-                         <Form onSubmit={handleSubmit}>
+                         <Form onSubmit={validate(handleSubmit)}>
                               <Col md={6}>
                                    <Form.Group className="mb-3" controlId="title">
                                         <Form.Label>Title</Form.Label>
                                         <Form.Control
+                                             {...register("title", { required: true, minLength: 3})}
                                              type="text"
                                              placeholder="Enter title"
-                                             required
                                              onChange={(e) => setTitle(e.target.value)} value={title}
                                         />
+                                        {errors.title && <small className="d-block form-text text-danger mt-2">This field is required</small>}
+                                        {errors.title && <small className="d-block form-text text-danger mt-2">Title is too short (min is 3)</small>}
                                    </Form.Group>
 
                                    <Form.Group className="mb-3" controlId="author">
                                         <Form.Label>Author</Form.Label>
                                         <Form.Control
+                                             {...register("author", { required: true, minLength: 3})}
                                              type="text"
                                              placeholder="Enter author"
-                                             required
                                              onChange={(e) => setAuthor(e.target.value)} value={author}
                                         />
+                                        {errors.author && <small className="d-block form-text text-danger mt-2">This field is required</small>}
+                                        {errors.author && <small className="d-block form-text text-danger mt-2">Title is too short (min is 3)</small>}
                                    </Form.Group>
 
                                    <Form.Group className="mb-3" controlId="published">
@@ -62,13 +74,15 @@ const PostForm = ({ action, actionText, ...props }) => {
                               <Form.Group className="mb-3" controlId="description">
                                    <Form.Label>Short Description</Form.Label>
                                    <Form.Control
+                                        {...register("description", { required: true, minLength: 20})}
                                         type="text"
                                         as="textarea"
                                         rows={3}
                                         placeholder="Leave a comment here"
-                                        required
                                         onChange={(e) => setShortDescription(e.target.value)} value={shortDescription}
                                    />
+                                   {errors.shortDescription && <small className="d-block form-text text-danger mt-2">This field is required</small>}
+                                   {errors.shortDescription && <small className="d-block form-text text-danger mt-2">Title is too short (min is 20)</small>}
                               </Form.Group>
 
                               <Form.Group className="mb-3" controlId="content">

@@ -16,7 +16,7 @@ const AddPostForm = () => {
 
      return (
           <PostForm action={handleSubmit} actionText={actionText} />
-     )
+     );
 };
 
 export default AddPostForm;
