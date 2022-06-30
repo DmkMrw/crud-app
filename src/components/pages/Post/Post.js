@@ -8,11 +8,13 @@ import { useDispatch } from "react-redux";
 import { deletePost } from "../../../redux/postRedux";
 import { Navigate, Link } from "react-router-dom";
 import { dateToStr } from "../../../utils/dateToStr";
+import { useNavigate } from "react-router-dom";
 
 
 const Post = () => {
 
      const { id } = useParams();
+     let navigate = useNavigate();
 
      const listData = useSelector(state => getPostById(state, id))
      const [showRemoveModal, setShowRemoveModal] = useState(false)
@@ -28,7 +30,7 @@ const Post = () => {
 
      const handleShowRemoveModal = () => setShowRemoveModal(true)
 
-     if(!listData) return <Navigate to="/" />
+     if(!listData) return navigate(-1);
      return (
           <>
 

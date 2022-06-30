@@ -1,5 +1,6 @@
 //selectors
 export const getAllCategories = (state) => state.categories;
+export const getPostByCategory = ({ posts }, categoryId) => posts.filter(post => post.category === categoryId);
 
 // actions
 

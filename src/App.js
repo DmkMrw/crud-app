@@ -9,6 +9,7 @@ import Categories from './components/pages/Categories/Categories';
 import { Container } from 'react-bootstrap';
 import AddPostForm from './components/features/AddPostForm/AddPostForm';
 import EditPostForm from './components/features/EditPostForm/EditPostForm';
+import Category from './components/pages/Category/Category';
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/post/edit/:postId" element={<EditPostForm />} />
           <Route path="/about" element={<About />} />
           <Route path="/categories" element={<Categories />} />
+          <Route path="/category/:categoryId" element={<Category />} />
           <Route path="*" element={<BlankPage />} />
         </Routes>
         <Footer />

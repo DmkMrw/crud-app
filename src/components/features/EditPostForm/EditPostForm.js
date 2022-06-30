@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import dateFormat from "dateformat";
 import { Navigate } from "react-router-dom";
 
+
 const EditPostForm = () => {
 
      const { postId } = useParams();
@@ -19,7 +20,7 @@ const EditPostForm = () => {
 
      const handleSubmit = post => {
                dispatch(editPost({ ...post, postId }));
-               navigate('/')
+               navigate(-2)
      };
 
      const actionText = 'Edit post'
