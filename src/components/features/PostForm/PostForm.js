@@ -46,23 +46,23 @@ const PostForm = ({ action, actionText, ...props }) => {
                                    <Form.Group className="mb-3" controlId="title">
                                         <Form.Label>Title</Form.Label>
                                         <Form.Control
-                                             // {...register("title", { required: true, minLength: 3})}
+                                             {...register("title", { required: true, minLength: 3})}
                                              type="text"
                                              placeholder="Enter title"
                                              onChange={(e) => setTitle(e.target.value)} value={title}
                                         />
-                                        {/* {errors.title && <small className="d-block form-text text-danger mt-2">This field is required and should be minimum 3 signs lenght</small>} */}
+                                        {errors.title && <small className="d-block form-text text-danger mt-2">This field is required and should be minimum 3 signs lenght</small>}
                                    </Form.Group>
 
                                    <Form.Group className="mb-3" controlId="author">
                                         <Form.Label>Author</Form.Label>
                                         <Form.Control
-                                             // {...register("author", { required: true, minLength: 3})}
+                                             {...register("author", { required: true, minLength: 3})}
                                              type="text"
                                              placeholder="Enter author"
                                              onChange={(e) => setAuthor(e.target.value)} value={author}
                                         />
-                                        {/* {errors.author && <small className="d-block form-text text-danger mt-2">This field is required and should be minimum 3 signs lenght</small>} */}
+                                        {errors.author && <small className="d-block form-text text-danger mt-2">This field is required and should be minimum 3 signs lenght</small>}
                                    </Form.Group>
 
                                    <Form.Group className="mb-3" controlId="published">
@@ -74,7 +74,7 @@ const PostForm = ({ action, actionText, ...props }) => {
                                              onChange={(e) => setPublishedDate(dateFormat(e.target.value, "yyyy-mm-dd"))} value={publishedDate}
                                         /> */}
                                         <DatePicker selected={publishedDate} onChange={(date) => setPublishedDate(date)} placeholderText={'Please select a date'} />
-                                        {/* {dateError && <small className="d-block form-text text-danger mt-2">You have to choose a date.</small>} */}
+                                        {dateError && <small className="d-block form-text text-danger mt-2">You have to choose a date.</small>}
                                    </Form.Group>
                               </Col>
 
@@ -91,7 +91,7 @@ const PostForm = ({ action, actionText, ...props }) => {
                               <Form.Group className="mb-3" controlId="description">
                                    <Form.Label>Short Description</Form.Label>
                                    <Form.Control
-                                        // {...register("description", { required: true, minLength: 20})}
+                                        {...register("description", { required: true, minLength: 20})}
                                         type="text"
                                         as="textarea"
                                         rows={3}
@@ -104,7 +104,7 @@ const PostForm = ({ action, actionText, ...props }) => {
                               <Form.Group className="mb-3" controlId="content">
                                    <Form.Label>Main Content</Form.Label>
                                    <ReactQuill theme='snow' value={content} onChange={setContent} placeholder='Type here' />
-                                   {/* {contentError && <small className="d-block form-text text-danger mt-2">Content can't be empty</small>} */}
+                                   {contentError && <small className="d-block form-text text-danger mt-2">Content can't be empty</small>}
                               </Form.Group>
 
                               <Button variant="primary" type="submit">
