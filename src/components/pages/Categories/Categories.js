@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { Nav, ListGroup, Row, Col } from 'react-bootstrap';
 import shortid from "shortid";
-import Category from "../Category/Category";
 
 
 const Categories = () => {
