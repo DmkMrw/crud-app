@@ -96,6 +96,7 @@ const PostForm = ({ action, actionText, ...props }) => {
                                         as="textarea"
                                         rows={3}
                                         placeholder="Leave a comment here"
+                                        required ={true}
                                         onChange={(e) => setShortDescription(e.target.value)} value={shortDescription}
                                    />
                                    {errors.shortDescription && <small className='d-block form-text text-danger mt-2'>This field is required and should be minimum 20 signs length</small>}

@@ -24,7 +24,7 @@ const EditPostForm = () => {
      };
 
      const actionText = 'Edit post'
-     if(!postData) return <Navigate to="/" />
+     // if(!postData) return <Navigate to="/" />
      return (
           <>
                <h1>Edit Post</h1>
